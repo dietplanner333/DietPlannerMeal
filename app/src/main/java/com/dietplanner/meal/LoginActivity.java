@@ -28,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         api = RetrofitClient.getRestClient().create(SupabaseApi.class);
 
         // Pre-fill login
-        binding.inputUsername.setText("mikey833");
-        binding.inputPassword.setText("BH3135vXYLLoUzwX");
+        binding.inputUsername.setText("");
+        binding.inputPassword.setText("");
 
         binding.btnLogin.setOnClickListener(v -> {
             String username = binding.inputUsername.getText().toString().trim();
