@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="meals">
+        <item>Breakfast</item>
+        <item>Snack</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Late Night</item>
+    </string-array>
+</resources>

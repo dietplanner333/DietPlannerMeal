@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dietplanner.meal">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Diet Planner"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.DietPlanner"
+        android:supportsRtl="true">
+
+
+    <!-- LOGIN PAGE (LAUNCHER) -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- MAIN PAGE -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- ADD PLAN PAGE -->
+        <activity
+            android:name=".AddPlanActivity"
+            android:exported="false" />
+
+        <!-- SEARCH PAGE -->
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
