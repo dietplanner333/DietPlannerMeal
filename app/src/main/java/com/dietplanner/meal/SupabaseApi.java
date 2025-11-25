@@ -16,8 +16,8 @@ import retrofit2.http.Field;
 public interface SupabaseApi {
     // GET userdetails by username:
     // e.g. GET /userdetails?select=name,salt,hash&username=eq.mikey833
-    @GET("userdetails")
-    Call<List<UserDetail>> getUserByUsername(@Query("select") String select, @Query("username") String usernameEq);
+    @GET("get_user_v2")
+    Call<List<UserDetail>> getUserByUsername(@Query("p_username") String p_username);
 
     // POST to RPC function
     @POST("search")

@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        api = RetrofitClient.getRestClient().create(SupabaseApi.class);
+        api = RetrofitClient.getRpcClient().create(SupabaseApi.class);
 
         // Pre-fill login
         binding.inputUsername.setText("");
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login(String username, String password) {
         // Query Supabase for userdetails
-        Call<List<UserDetail>> call = api.getUserByUsername("name,salt,hash", "eq." + username);
+        Call<List<UserDetail>> call = api.getUserByUsername(username);
         call.enqueue(new Callback<List<UserDetail>>() {
             @Override
             public void onResponse(Call<List<UserDetail>> call, Response<List<UserDetail>> response) {
@@ -56,9 +56,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 UserDetail user = response.body().get(0);
-                String computedHash = HashUtil.sha256Hex(user.salt + password);
+                String computedHash = HashUtil.sha256Hex(user.a + password);
 
-                if (computedHash != null && computedHash.equals(user.hash)) {
+                if (computedHash != null && computedHash.equals(user.b)) {
                     // Login success
                     /*startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();*/
